@@ -12,7 +12,7 @@ export default function Login() {
     try {
       console.log(email)
       console.log(password)
-      const { data } = await api.post("/auth/login", { email, password });
+      const { data } = await api.post("/auth/login", { email: email, password: password });
       console.log(data)
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
