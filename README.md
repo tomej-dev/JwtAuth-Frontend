@@ -36,30 +36,24 @@ JwtAuth-Frontend/
 ├── postcss.config.js # config do PostCSS
 └── package.json
 
-yaml
-Copiar código
-
 ---
 
 ## ⚙️ Como executar localmente
 
 ### 1. Clone o repositório  
-```bash
+
 git clone https://github.com/tomej-dev/JwtAuth‑Frontend.git
 cd JwtAuth‑Frontend
 2. Instale as dependências
-bash
-Copiar código
 npm install
+
 3. Configure a URL da API
 Abra .env ou src/api/api.js e ajuste a baseURL para apontar para sua API backend.
 Exemplo:
 
-bash
-Copiar código
 VITE_API_URL = http://localhost:5043/api
 4. Execute o aplicativo
-bash
+
 Copiar código
 npm run dev
 Abra no navegador a URL que aparecer, tipicamente http://localhost:5173.
