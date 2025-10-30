@@ -12,7 +12,6 @@ export default function Register() {
     try {
       await api.post("/auth/register", { username, email, password });
       alert("Usuário cadastrado com sucesso!");
-      Navigate("/")
     } catch {
       alert("Erro ao registrar.");
     }
