@@ -1,16 +1,18 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import {Link, Navigate} from "react-router-dom"
 import api from "../services/api";
 
 export default function Register() {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleRegister(e) {
     e.preventDefault();
     try {
-      await api.post("/auth/register", { username, password });
+      await api.post("/auth/register", { username, email, password });
       alert("Usuário cadastrado com sucesso!");
+      Navigate("/")
     } catch {
       alert("Erro ao registrar.");
     }
@@ -25,6 +27,12 @@ export default function Register() {
           placeholder="Usuário"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          className="w-full p-2 mb-3 rounded bg-gray-700 text-white"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className="w-full p-2 mb-3 rounded bg-gray-700 text-white"

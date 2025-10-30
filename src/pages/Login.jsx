@@ -3,14 +3,14 @@ import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const { data } = await api.post("/auth/login", { username, password });
+      const { data } = await api.post("/auth/login", { email, password });
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } catch {
@@ -25,9 +25,9 @@ export default function Login() {
         <h1 className="text-2xl text-white mb-4">Login</h1>
         <input
           className="w-full p-2 mb-3 rounded bg-gray-700 text-white"
-          placeholder="Usuário"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Informe seu Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className="w-full p-2 mb-3 rounded bg-gray-700 text-white"
